@@ -1,41 +1,33 @@
-import React, { useEffect} from 'react';
-import './App.css';
+//   return (
+//     <div>
+//       <h1>Meus dados da API</h1>
+//       <ul>
+//         {dadosAPI.map((item, index) => (
+//           <li key={index}>{item.nome}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
 
-function consumirServiço(url) {
-       
-       return fetch(url)
-       .then (response => {
-        if (!response.ok) {
-          throw new Error ("Erro ao consumir o serviço");
-        }
-        return response.json();
-       })
-       .catch (error => {
-        console.error ('Erro:', error);
-        throw error;
-       })
-      }
 
-function App() {
-  const url = 'https://course-api.com/react-tours-project';
+import { useEffect, useState } from "react";
+
+export default function App() {
+  const [dadosAPI, setDadosAPI] = useState([]);
 
   useEffect(() => {
-    consumirServiço(url)
-    .then(data => {
-      console.log ("Dados do serviço:", data)
-    })
-    .catch(error => {
-      console.error("Erro ao consumir serviço:", error);
-    })
-  } )
+    fetch('https://course-api.com/react-tours-project')
+      .then((response) => response.json())
+      .then((dados) => setDadosAPI(dados))
+      .catch((erro) => console.error("Erro ao buscar dados da API", erro));
+  }, []);
 
   return (
-    <div className="App">
-      console.log(url)    
+    <div>
+      {dadosAPI.map((item, index) => (
+        <h1 key={index}>{item.nome}</h1>
+      ))}
     </div>
   );
 }
-
-export default App;
-
-    {/* criar uma função que consuma o serviço  (Link) com o fetch e returnar um console com o resultado do serviço. Invocar essa função em useEffect*/}
