@@ -1,0 +1,15 @@
+.wrapper {
+color:black;
+}
+
+.informations {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+
+.price{
+   color: rgb(93, 203, 211);
+}
