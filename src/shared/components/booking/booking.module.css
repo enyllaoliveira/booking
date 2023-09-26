@@ -1,6 +1,3 @@
-.wrapper {
-color:black;
-}
 
 .informations {
   display: flex;
@@ -12,4 +9,33 @@ color:black;
 
 .price{
    color: rgb(93, 203, 211);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+}
+
+.containerInf{
+  color: black;
+  display: flex;
+  margin-bottom: 20px;
+  font-weight: 700;
+
+}
+
+.containerInfPrice {
+  font: bolder;
+  color: aquamarine;
+  margin-left: 80px;
+
+}
+
+.containerInfText {
+color: rgb(88, 86, 86);
+}
+
+img {
+  width: 100%;
 }

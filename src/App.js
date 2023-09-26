@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import React from "react"
-import Booking from "./shared/components/booking/booking.jsx"
+import Booking from "./shared/components/booking/booking.tsx"
 import './App.module.css'
+import styles from './App.module.css'
 
 export default function App() {
   const [data, setData] = useState([])
@@ -22,7 +23,7 @@ export default function App() {
 
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <h1> Nossas acomodações </h1>
       <div className="booking-dados"> 
       <Booking data={data}/>
