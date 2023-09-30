@@ -11,6 +11,7 @@ export default function App() {
     try {
       const response = await fetch('https://course-api.com/react-tours-project')
       const result = await response.json()
+      // colocar um loading e colocá-lo como falso quando terminar a requisição
       setData(result)
     } catch (error) {
       console.log(error)

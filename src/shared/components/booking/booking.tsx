@@ -1,30 +1,35 @@
 import { useEffect } from "react"
 // import styles from './booking.module.css'
-import { Wrapper } from "../../../styles/booking";
+import { Wrapper, Container, ContainerInf, ContainerInfPrice, ContainerInfText, Img, Title } from "../../../styles/booking";
+import { BookingProps } from "../../types/booking";
 
-const Bookings = (props: any) => {
+interface Props {
+  data: BookingProps[]
+}
 
-useEffect(() => {
+const Bookings = (props: Props) => {
+  useEffect(() => {
 }, [props.data]) 
 
 
 return (
     <div>
-      {props.data.map((item: any) => (
+      {props.data.map((item: BookingProps) => (
         <Wrapper> 
-          test
-        {/* <div  className={styles.container}  key={item.id}>
-          <img src={item.image} alt={item.name} /> <br></br>
-        <div className={styles.containerInf}>         
-          {item.name}<br></br>
-          <div className={styles.containerInfPrice}>
-          {item.price}<br></br>
-          </div>
-        </div> 
-        <div className={styles.containerInfText}>
-          {item.info} <br></br>
-        </div>
-        </div> */}
+        <Container key={item.id}>
+          <Img src={item.image} alt={item.name}/> 
+          <ContainerInf >
+            <Title>
+            {item.name}
+            </Title>
+            <ContainerInfPrice>
+            {item.price}
+            </ContainerInfPrice>
+          </ContainerInf> 
+          <ContainerInfText>
+            {item.info} 
+          </ContainerInfText>
+        </Container>
         </Wrapper>
       ))}
     </div>
