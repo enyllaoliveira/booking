@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react"
 import React from "react"
-import Booking from "./shared/components/booking/booking.tsx"
-import './App.module.css'
-import styles from './App.module.css'
+import Booking from "./shared/components/booking/booking.tsx" 
+import Loading from "./shared/components/loading/loading.tsx"
+import { Quadro, Text, BookingDados } from "./styles/app.tsx"
 
 export default function App() {
   const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const getData = async () => {
     try {
       const response = await fetch('https://course-api.com/react-tours-project')
       const result = await response.json()
-      // colocar um loading e colocá-lo como falso quando terminar a requisição
       setData(result)
     } catch (error) {
-      console.log(error)
+      console.error(error)
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 500);
     }
   }
 
@@ -23,13 +27,10 @@ export default function App() {
     }, [])
 
 
-  return (
-    <div className={styles.container}>
-      <h1> Nossas acomodações </h1>
-      <div className="booking-dados"> 
-      <Booking data={data}/>
-      </div>
-    </div>
-    
-  )
-}
+    return (
+      <Quadro>
+        <Text>Nossas acomodações</Text>
+        {isLoading ? <Loading /> : <BookingDados><Booking data={data} /></BookingDados>}
+      </Quadro>
+    );
+  }

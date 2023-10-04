@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-// import styles from './booking.module.css'
 import { Wrapper, Container, ContainerInf, ContainerInfPrice, ContainerInfText, Img, Title } from "../../../styles/booking";
 import { BookingProps } from "../../types/booking";
 
