@@ -1,10 +1,10 @@
 import { LoaderContainer, Loader } from "../../../styles/loading"
-import { loadingImg } from "./loadingImg.png"
+import { Img } from "../../../styles/booking"
 
 function Loading() {
 return (
     <LoaderContainer>
-    <Loader src={loadingImg} alt='Loading'/>
+    <Loader src={Img} alt='Loading'/>
     </LoaderContainer>
 )
 }
